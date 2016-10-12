@@ -1,1 +1,1 @@
-# gateway-http-xml-mo-mt
+Sample code for the  txtNation API at http://wiki.txtnation.com/wiki/Gateway_HTTP_XML#Bulk_SMS

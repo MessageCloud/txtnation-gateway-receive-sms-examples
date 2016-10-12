@@ -1,0 +1,213 @@
+---
+---
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Responsive Accessibility -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<!-- iOS Tel Number Detection -->
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- Vendor styles -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+    <!-- App styles -->
+    <style>
+	
+		body {
+		  background-color: transparent;
+		  background-image: none;
+		  margin: 0;
+		  padding: 0;
+		}
+
+		html, body {
+		  height: auto;
+		}
+		
+		pre {
+			background: transparent;
+			border: 0;
+			margin: 0;
+			border-radius: 0;
+			color: #f8f8f2;
+		}
+		
+		pre code {
+			border: 0;
+		}
+		
+		.highlight pre { background-color: #272822; }
+		.highlight .hll { background-color: #272822; }
+		.highlight .c { color: #75715e } /* Comment */
+		.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+		.highlight .k { color: #66d9ef } /* Keyword */
+		.highlight .l { color: #ae81ff } /* Literal */
+		.highlight .n { color: #f8f8f2 } /* Name */
+		.highlight .o { color: #f92672 } /* Operator */
+		.highlight .p { color: #f8f8f2 } /* Punctuation */
+		.highlight .cm { color: #75715e } /* Comment.Multiline */
+		.highlight .cp { color: #75715e } /* Comment.Preproc */
+		.highlight .c1 { color: #75715e } /* Comment.Single */
+		.highlight .cs { color: #75715e } /* Comment.Special */
+		.highlight .ge { font-style: italic } /* Generic.Emph */
+		.highlight .gs { font-weight: bold } /* Generic.Strong */
+		.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+		.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+		.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+		.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+		.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+		.highlight .kt { color: #66d9ef } /* Keyword.Type */
+		.highlight .ld { color: #e6db74 } /* Literal.Date */
+		.highlight .m { color: #ae81ff } /* Literal.Number */
+		.highlight .s { color: #e6db74 } /* Literal.String */
+		.highlight .na { color: #a6e22e } /* Name.Attribute */
+		.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+		.highlight .nc { color: #a6e22e } /* Name.Class */
+		.highlight .no { color: #66d9ef } /* Name.Constant */
+		.highlight .nd { color: #a6e22e } /* Name.Decorator */
+		.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+		.highlight .ne { color: #a6e22e } /* Name.Exception */
+		.highlight .nf { color: #a6e22e } /* Name.Function */
+		.highlight .nl { color: #f8f8f2 } /* Name.Label */
+		.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+		.highlight .nx { color: #a6e22e } /* Name.Other */
+		.highlight .py { color: #f8f8f2 } /* Name.Property */
+		.highlight .nt { color: #f92672 } /* Name.Tag */
+		.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+		.highlight .ow { color: #f92672 } /* Operator.Word */
+		.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+		.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+		.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+		.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+		.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+		.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+		.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+		.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+		.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+		.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+		.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+		.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+		.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+		.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+		.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+		.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+		.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+		.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+		.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+		.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+		.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+
+		.highlight .gh { } /* Generic Heading & Diff Header */
+		.highlight .gu { color: #75715e; } /* Generic.Subheading & Diff Unified/Comment? */
+		.highlight .gd { color: #f92672; } /* Generic.Deleted & Diff Deleted */
+		.highlight .gi { color: #a6e22e; } /* Generic.Inserted & Diff Inserted */
+		
+		.lineno { color: #75715e; padding-right: 20px; }
+		
+    </style>
+
+</head>
+<body data-layout="widget">
+	
+	<div>
+		
+		<ul class="nav nav-tabs" role="tablist">
+		    <li role="presentation" class="active"><a href="#java" aria-controls="java" role="tab" data-toggle="tab">Java</a></li>
+		    <li role="presentation"><a href="#php" aria-controls="php" role="tab" data-toggle="tab">PHP</a></li>
+		    <li role="presentation"><a href="#cs" aria-controls="cs" role="tab" data-toggle="tab">C#/.Net</a></li>
+		    <li role="presentation"><a href="#cpp" aria-controls="cpp" role="tab" data-toggle="tab">C++/CLI</a></li>
+			<li role="presentation"><a href="#vb" aria-controls="vb" role="tab" data-toggle="tab">VB.NET</a></li>
+			<li role="presentation"><a href="#asp" aria-controls="asp" role="tab" data-toggle="tab">ASP</a></li>
+			<li role="presentation"><a href="#rb" aria-controls="rb" role="tab" data-toggle="tab">RUBY</a></li>
+			<li role="presentation"><a href="#js" aria-controls="js" role="tab" data-toggle="tab">NodeJS</a></li>
+			<li role="presentation"><a href="#py" aria-controls="py" role="tab" data-toggle="tab">Python</a></li>
+			<li role="presentation"><a href="#curl" aria-controls="curl" role="tab" data-toggle="tab">Curl</a></li>
+		</ul>
+
+		<div class="tab-content">
+		
+			<div role="tabpanel" class="tab-pane active" id="java">
+				<!-- Code Example - Java -->
+{% highlight java linenos %}
+{% include_relative samples/txtnation.java %}
+{% endhighlight %}
+			</div>
+		
+		    <div role="tabpanel" class="tab-pane" id="php">
+		    	<!-- Code Example - PHP -->
+{% highlight php linenos %}
+{% include_relative samples/txtnation.php %}
+{% endhighlight %}
+		    </div>
+		
+		    <div role="tabpanel" class="tab-pane" id="cs">
+		    	<!-- Code Example - C#/.Net -->
+{% highlight aspx-cs linenos %}
+{% include_relative samples/txtnation.cs %}
+{% endhighlight %}
+		    </div>
+		
+		    <div role="tabpanel" class="tab-pane" id="cpp">
+		    	<!-- Code Example - C++/CLI -->
+{% highlight cpp linenos %}
+{% include_relative samples/txtnation.cpp %}
+{% endhighlight %}
+		    </div>
+		
+			<div role="tabpanel" class="tab-pane" id="vb">
+				<!-- Code Example - VB.NET -->
+{% highlight vb.net linenos %}
+{% include_relative samples/txtnation.vb %}
+{% endhighlight %}
+			</div>
+		
+			<div role="tabpanel" class="tab-pane" id="asp">
+				<!-- Code Example - ASP -->
+{% highlight aspx-vb linenos %}
+{% include_relative samples/txtnation.asp %}
+{% endhighlight %}
+			</div>
+		
+			<div role="tabpanel" class="tab-pane" id="rb">
+				<!-- Code Example - RUBY -->
+{% highlight ruby linenos %}
+{% include_relative samples/txtnation.rb %}
+{% endhighlight %}
+			</div>
+		
+			<div role="tabpanel" class="tab-pane" id="js">
+				<!-- Code Example - NodeJS -->
+{% highlight js linenos %}
+{% include_relative samples/txtnation.js %}
+{% endhighlight %}
+			</div>
+		
+			<div role="tabpanel" class="tab-pane" id="py">
+				<!-- Code Example - Python -->
+{% highlight python linenos %}
+{% include_relative samples/txtnation.py %}
+{% endhighlight %}
+			</div>
+		
+			<div role="tabpanel" class="tab-pane" id="curl">
+				<!-- Code Example - Curl -->
+{% highlight bash linenos %}
+{% include_relative samples/txtnation.curl %}
+{% endhighlight %}
+			</div>
+		
+		</div>
+		
+	</div>
+	
+	<script src="//code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script src="//txtnationsmsc.github.io/gateway-http-xml-mo/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</body>
+</html>
