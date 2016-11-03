@@ -1,6 +1,6 @@
 ## Synopsis
 
-This is a repository of sample code for the txtNation API at http://wiki.txtnation.com/wiki/Gateway_HTTP_XML#Bulk_SMS. 
+This is a repository of sample code for the txtNation API at http://wiki.txtnation.com/wiki/Gateway_HTTP_XML#Bulk_SMS listening for an incoming MO POST request. 
 
 ## Code Example
 
