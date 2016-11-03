@@ -1,1 +1,0 @@
-curl http://smsc.txtnation.com:8091/sms/send_sms.php?src=447777000000&dst=447777111111&dr=1&user=YOUR_USERNAME_HERE&password=YOUR_PASSWORD_HERE&type=0&msg=txtNation%20best%20to%20test%20at%20the%20end%20of%20the%20road

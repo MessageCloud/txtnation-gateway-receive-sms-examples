@@ -1,35 +1,47 @@
 using System;
-using System.IO;
 using System.Net;
-using System.Text;
-using System.Web;
- 
-namespace SendSMS {
-    class Program {
-        public static string SendSMS(string src, string dst, string type, string dr, string user, string password, string msg) {
-            StringBuilder sb  = new StringBuilder();
-            byte[]        buf = new byte[1024];
-            string url = "http://smsc.txtnation.com:8091/sms/send_sms.php" +
-                "?src=" + src + "&dst=" + dst + "&type=" + type +
-                "&dr=" + dr + "&user=" + user + "&password=" + password + "&msg=" + HttpUtility.UrlEncode(message);
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream resStream = response.GetResponseStream();
-            string tempString = null;
-            int count = 0;
-            do {
-                count = resStream.Read(buf, 0, buf.Length);
-                if (count != 0) {
-                    tempString = Encoding.ASCII.GetString(buf, 0, count);
-                    sb.Append(tempString);
-                }
-            }
-            while (count > 0);
-            return sb.ToString();
-        }
-        static void Main(string[] args) {
-            string respXML = SendSMS("447777000000", "447777111111", "0", "1","myUsername", "myPassword","My test message");
-            Console.WriteLine(respXML);
-       }
+
+// This example requires the System and System.Net namespaces.
+public static void SimpleListenerExample(string[] prefixes)
+{
+    if (!HttpListener.IsSupported)
+    {
+        Console.WriteLine ("Windows XP SP2 or Server 2003 is required to use the HttpListener class.");
+        return;
     }
+    // URI prefixes are required,
+    // for example "http://yourwebsite.com:8080/index".
+    if (prefixes == null || prefixes.Length == 0)
+    	throw new ArgumentException("prefixes");
+
+    // Create a listener.
+    HttpListener listener = new HttpListener();
+    
+	// Add the prefixes.
+    foreach (string s in prefixes)
+    {
+        listener.Prefixes.Add(s);
+    }
+    listener.Start();
+    Console.WriteLine("Listening...");
+    
+	// Note: The GetContext method blocks while waiting for a request. 
+    HttpListenerContext context = listener.GetContext();
+    HttpListenerRequest request = context.Request;
+    
+	// Obtain a response object.
+    HttpListenerResponse response = context.Response;
+    
+	// Construct a response.
+    string responseString = "<HTML><BODY>OK</BODY></HTML>";
+    byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
+    
+	// Get a response stream and write the response to it.
+    response.ContentLength64 = buffer.Length;
+    System.IO.Stream output = response.OutputStream;
+    output.Write(buffer,0,buffer.Length);
+    
+	// You must close the output stream.
+    output.Close();
+    listener.Stop();
 }

@@ -1,20 +1,34 @@
-Imports System.Web
+Imports System.Net
+Imports System.Globalization
 
-Module Module1
-    Public Function SendSMS(ByVal src As String, ByVal dst As String, ByVal type As String, ByVal dr As String,
-                            ByVal user As String, ByVal password As String, ByVal msg As String)
-        Dim webClient As New System.Net.WebClient
-        Dim url As String = "http://smsc.txtnation.com:8091/sms/send_sms.php?src=" &
-                src & "&dst=" & dst & "&type=" & type & "&dr=" & dr & "&user=" & user & "&password=" & password
-                "&msg=" & System.Web.HttpUtility.UrlEncode(msg)
-        Dim result As String = webClient.DownloadString(url)
-        SendSMS = result
-    End Function
+Module HttpListener
 
     Sub Main()
-        Dim result As String = SendSMS("447777000000", "447777111111", "0", "1","myUsername", "myPassword","My test message")
-        Console.WriteLine(result)
-        Console.ReadKey()
+        Dim prefixes(0) As String
+        prefixes(0) = "http://*:8080/HttpListener/"
+        ProcessRequests(prefixes)
     End Sub
 
-End Module
+    Private Sub ProcessRequests(ByVal prefixes() As String)
+        If Not System.Net.HttpListener.IsSupported Then
+            Console.WriteLine( _
+                "Windows XP SP2, Server 2003, or higher is required to use the HttpListener class.")
+            Exit Sub
+        End If
+
+        ' URI prefixes are required,
+        If prefixes Is Nothing OrElse prefixes.Length = 0 Then
+            Throw New ArgumentException("prefixes")
+        End If
+
+        ' Create a listener and add the prefixes.
+        Dim listener As System.Net.HttpListener = _
+            New System.Net.HttpListener()
+        For Each s As String In prefixes
+            listener.Prefixes.Add(s)
+        Next
+
+        Try
+            ' Start the listener to begin listening for requests.
+            listener.Start()
+            Console.WriteLine("Listening...")
