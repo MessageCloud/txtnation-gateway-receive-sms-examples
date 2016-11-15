@@ -12,7 +12,7 @@ The repository has been written to provide a central version controlled storage 
 
 ## Widget Setup
 
-The widget runs using GitHub pages which is pointed to the 'docs' folder. The widget consists of a main widget.html file, and widget.js file. 
+The widget runs using GitHub pages which is pointed to the 'docs' folder and can be found at https://txtnation.github.io/txtnation-gateway-receive-sms-examples/. The widget consists of a main widget.html file, and widget.js file. 
 
 The main HTML file loads [Font Awesome](http://fontawesome.io/), [Bootstrap](http://getbootstrap.com/) and [jQuery](https://jquery.com/) via a CDN provided by [MaxCDN](https://www.maxcdn.com).
 
